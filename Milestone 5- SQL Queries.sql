@@ -1,4 +1,4 @@
-drop table GenZ_Dataset;
+-- Create table 
 Create table GenZ_Dataset
 (
 Time time,
@@ -33,12 +33,17 @@ Frequency_of_full_week_break_to_maintain_work_life_balance	varchar(100),
 Factors_influencing_Happiness_and_Productivity varchar(100),
 Frustating_Factors_ varchar(100)
 );
+
+
+-- Altering table 
 ALTER TABLE GenZ_Dataset
 ALTER COLUMN Time TYPE DATE
 USING TO_DATE(Time::TEXT, 'DD-MM-YYYY');
 
 SET datestyle = 'DMY';
 
+
+-- Loading data into tables
 copy GenZ_Dataset(Time,Country,Pin_Code,Gender,Career_Influencing_Factors,Interest_in_Abroad_Higher_Education,
 Likeliness_to_work_3_year_for_employer,Willingness_to_work_in_an_Undefined_Mission_Company,Likelihood_to_work_for_Company_mission_action_dismatch,
 Likely_to_work_for_No_Social_Impact_Company,Preferred_working_environment,Preffered_Employer_Type_to_work,Preferred_learning_environment_to_work,
@@ -50,6 +55,8 @@ Factors_influencing_Happiness_and_Productivity,Frustating_Factors_ )
 from 'C:\sql queries assignment.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',');
 
+
+--Updating tables
 update GenZ_Dataset
 Set Likely_to_work_for_No_Social_Impact_Company = CASE
     WHEN Likely_to_work_for_No_Social_Impact_Company = 'Yes' THEN 'No'
