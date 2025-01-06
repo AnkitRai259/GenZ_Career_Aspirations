@@ -65,4 +65,4 @@ This project aims to analyze the career aspirations and challenges faced by GenZ
 
 
 Created by: Ankit Rai
-[Linkedin](www.linkedin.com/in/ankitrai259)
+[Linkedin](https://www.linkedin.com/in/ankitrai259)
